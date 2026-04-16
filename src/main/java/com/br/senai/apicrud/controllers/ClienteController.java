@@ -50,6 +50,14 @@ public class ClienteController
             repository.save(new Cliente(dados));
     }
 
+    @PutMapping
+    @Transactional
+    public void atualizarCategoria(@RequestBody @Valid DadosAtualizarCliente dados){
+        var cliente = repository.getReferenceById(dados.id());
+        cliente.atualizarCategoria(dados);
+    }
+
+
 
 
 }
